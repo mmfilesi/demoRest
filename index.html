@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> 
+
+        <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+        body{
+            margin-left: 5%;
+        }
+        </style>
+    </head>
+
+    <body ng-app="demoRest">
+    
+      <section ng-controller="mainController">
+        <header>
+            <h3 ng-cloak>{{titulo}}</h3>
+        </header>
+        <article class="row">
+            <div class="col-md-3">
+                <form id="formulario" ng-submit="formulario.sendForm()" novalidate>
+                    <p><input id="formulario.pais"  ng-model="formulario.pais" type="text" placeholder="{{textoInput}}" ng-required="true"></input></p>
+                    <p><button type="submit" class="btn btn-default" ng-disabled="!formulario.pais">{{textoSubmit}}</button></p>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <p ng-show = "formularioError">Hay que escribir al menos tres letras, gañán</p>
+                <p ng-show = "respuesta.capital">La capital de tu país es {{respuesta.capital}}</p>
+                <p ng-show = "respuesta.cargando">Cargando datos</p>
+            </div>
+        </article>
+      </section>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>    
+
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers/main-controller.js"></script>
+    <script src="js/providers/factory.js"></script>
+
+
+    </body>
+</html>
